@@ -1,0 +1,10 @@
+﻿@* SlittingActionButtons.razor *@
+@code {
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public EventCallback OnReset { get; set; }
+}
+
+<div class="mt-4 d-flex gap-2">
+    <button type="submit" class="btn btn-success" @onclick="OnSubmit">✅ Save Shift</button>
+    <button type="button" class="btn btn-secondary" @onclick="OnReset">Reset</button>
+</div>

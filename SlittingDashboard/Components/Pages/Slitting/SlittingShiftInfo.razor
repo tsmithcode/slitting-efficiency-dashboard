@@ -1,0 +1,32 @@
+﻿@* Components/Slitting/SlittingShiftInfo.razor *@
+@using SlittingDashboard.Data.Models
+@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="@Shift" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Date</label>
+            <InputDate @bind-Value="Shift.Date" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Shift</label>
+            <InputNumber @bind-Value="Shift.Shift" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Team Lead</label>
+            <InputText @bind-Value="Shift.TeamLead" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Supervisor</label>
+            <InputText @bind-Value="Shift.Supervisor" class="form-control" />
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public ShiftSummary Shift { get; set; } = default!;
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+}

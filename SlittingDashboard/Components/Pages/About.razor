@@ -1,0 +1,79 @@
+﻿@page "/about"
+@using Microsoft.AspNetCore.Components.Routing
+
+<PageTitle>About - Slitting Efficiency Dashboard</PageTitle>
+
+<div class="container">
+
+    <!-- 🧠 Page Header -->
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h2 class="fw-bold">
+                <i class="bi bi-info-circle-fill text-primary me-2"></i>
+                About
+            </h2>
+            <p class="text-muted mt-3">
+                The <strong>Slitting Efficiency Dashboard</strong> is a purpose-built productivity tool developed by
+                <a href="https://tsmithcode.ai" target="_blank">Thomas Smith</a> to help track shift-level metrics,
+                identify root causes, and empower continuous improvement in manufacturing operations.
+            </p>
+        </div>
+    </div>
+
+    <!-- 🔧 Info Sections -->
+    <div class="row text-start">
+        <div class="col-md-6 mb-4">
+            <h5 class="fw-semibold">
+                <i class="bi bi-person-fill-gear me-2"></i>
+                Developer & Owner
+            </h5>
+            <p><strong>Thomas Smith</strong></p>
+            <p><a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a><br /><a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a></p>
+            <a href="https://github.com/tsmithcode/slitting-efficiency-dashboard" target="_blank" class="btn btn-outline-dark btn-sm mt-2">
+                <i class="bi bi-github me-2"></i> GitHub Repository
+            </a>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h5 class="fw-semibold">
+                <i class="bi bi-people-fill me-2"></i>
+                Contributors
+            </h5>
+            <p><strong>Criseida Fabiano</strong><br /><span class="text-muted">Manufacturing & Continuous Improvement Engine</span></p>
+            <p><strong>Steve Powers</strong><br /><span class="text-muted">Process & Continuous Improvement Technician</span></p>
+        </div>
+    </div>
+
+    <div class="row text-start">
+        <div class="col-md-6 mb-4">
+            <h5 class="fw-semibold">
+                <i class="bi bi-box-fill me-2"></i>
+                Technologies Used
+            </h5>
+            <ul class="mb-0">
+                <li>Blazor Server (.NET 8)</li>
+                <li>Recharts (React via interop)</li>
+                <li>TailwindCSS + Bootstrap grid</li>
+                <li>CSV/PDF export, real-time filtering</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h5 class="fw-semibold">
+                <i class="bi bi-file-earmark-text-fill me-2"></i>
+                License
+            </h5>
+            <p>
+                This app is licensed under the
+                <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</strong>.
+                <br />
+                No commercial or educational use is permitted without explicit written permission.
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-outline-primary">⬅ Back to Home</a>
+    </div>
+
+</div>

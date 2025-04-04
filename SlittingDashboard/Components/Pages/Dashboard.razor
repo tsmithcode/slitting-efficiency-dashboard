@@ -1,0 +1,134 @@
+﻿@page "/dashboard"
+@using SlittingDashboard.Data.Models
+@inject ISnapshotService SnapshotService
+
+<PageTitle>Dashboard</PageTitle>
+
+<!-- 🧠 Header -->
+<div class="row mb-4">
+    <div class="col text-center">
+        <h2 class="fw-bold">
+            <i class="bi bi-bar-chart-line-fill text-primary me-2"></i>
+            Dashboard
+        </h2>
+        <p class="text-muted">
+            View live KPIs with filters by date, operator, shift, and issue type to improve performance tracking and reduce downtime.
+        </p>
+    </div>
+</div>
+
+
+<!-- 🔍 Filter Panel -->
+<div class="row g-3 mb-4 justify-content-center">
+    <div class="col-md-3">
+        <label class="form-label">Shift</label>
+        <InputSelect @bind-Value="selectedShift" class="form-select">
+            <option value="All">All Shifts</option>
+            <option value="1">1st Shift</option>
+            <option value="2">2nd Shift</option>
+        </InputSelect>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Operator</label>
+        <InputSelect @bind-Value="selectedOperator" class="form-select">
+            <option value="All">All Operators</option>
+            @foreach (var op in operatorList)
+            {
+                <option value="@op">@op</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Date Range</label>
+        <div class="d-flex gap-2">
+            <InputDate @bind-Value="fromDate" class="form-control" />
+            <span class="align-self-center">to</span>
+            <InputDate @bind-Value="toDate" class="form-control" />
+        </div>
+    </div>
+</div>
+
+
+<!-- 📈 Combo Chart Placeholder (Orders vs Issues Over Time) -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title text-center">📈 Orders vs Goal (Combo Chart)</h5>
+        <div class="bg-light border rounded py-5 text-muted text-center">
+            [Recharts Combo Chart Placeholder: Line (Orders, Goal) + Total Issues Overlay]
+        </div>
+    </div>
+</div>
+
+<!-- 🧮 Metric Summary Cards -->
+<div class="row mb-4 text-center">
+    <div class="col-md-6">
+        <div class="card border-success">
+            <div class="card-body">
+                <h6 class="text-muted">Total Orders</h6>
+                <h3 class="text-success fw-bold">@totalOrders</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-body">
+                <h6 class="text-muted">Total Issues</h6>
+                <h3 class="text-danger fw-bold">@totalIssues</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 📊 Issue Bar Chart Placeholder -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title text-center">📋 Issues by Category (Bar Chart)</h5>
+        <div class="bg-light border rounded py-5 text-muted text-center">
+            [Recharts Bar Chart Placeholder: Issue Name vs Count]
+        </div>
+    </div>
+</div>
+
+<!-- 📉 Pareto Analysis Placeholder -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title text-center">📉 Pareto of Issues (Composed Chart)</h5>
+        <div class="bg-light border rounded py-5 text-muted text-center">
+            [Recharts Composed Chart Placeholder: Bar (Issue Count) + Line (Cumulative %)]
+        </div>
+    </div>
+</div>
+
+<!-- 📤 CSV + PDF Buttons -->
+<div class="text-center mb-5 d-flex flex-column flex-md-row justify-content-center gap-3">
+    <button class="btn btn-outline-primary btn-lg" @onclick="ExportCsv">📤 Export CSV</button>
+    <button class="btn btn-outline-dark btn-lg" @onclick="PrintPage">🖨️ Print / Save PDF</button>
+</div>
+
+@code {
+    private string selectedShift = "All";
+    private string selectedOperator = "All";
+    private DateOnly fromDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-7));
+    private DateOnly toDate = DateOnly.FromDateTime(DateTime.Today);
+
+    private int totalOrders = 250;
+    private int totalIssues = 20;
+
+    private List<string> operatorList = new()
+    {
+        "Patrick Agyekum", "Ean Evans", "Gregory C Jordan", "Sammy Wilkes",
+        "Eli Armstrong", "Anthony Carter", "Mesha Singleton", "Laron Whitaker"
+    };
+
+    private void ExportCsv()
+    {
+        Console.WriteLine("CSV export initiated (mock).");
+    }
+
+    private void PrintPage()
+    {
+        Console.WriteLine("Print view initiated (mock).");
+    }
+}

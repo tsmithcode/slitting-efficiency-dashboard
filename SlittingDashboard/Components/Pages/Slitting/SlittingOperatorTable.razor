@@ -1,0 +1,49 @@
+﻿<!-- Components/Slitting/SlittingOperatorTable.razor -->
+@using SlittingDashboard.Data.Models
+@using SlittingDashboard.Data.Constants
+@code {
+    [Parameter] public List<OperatorEntry> Operators { get; set; } = new();
+    [Parameter] public TimeOnly[] HourBlocks { get; set; } = [];
+}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Slitter #</th>
+                <th>Name</th>
+                @foreach (var hour in HourBlocks)
+                {
+                    <th>@hour.ToString("hh\\:mm")</th>
+                }
+                <th>Goal</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var op in Operators)
+            {
+                <tr>
+                    <td><InputNumber @bind-Value="op.SlitterNumber" class="form-control" /></td>
+                    <td><InputText @bind-Value="op.OperatorName" class="form-control" /></td>
+                    @foreach (var time in HourBlocks)
+                    {
+                        <td>
+                            <InputNumber @bind-Value="op.HourlyOrders[time]" class="form-control" />
+                        </td>
+                    }
+                    <td><InputNumber @bind-Value="op.DailyGoal" class="form-control" /></td>
+                    <td>
+                        <InputSelect @bind-Value="op.Comment" class="form-select">
+                            <option value="">(None)</option>
+                            @foreach (var issue in CommentMenus.Issues)
+                            {
+                                <option value="@issue">@issue</option>
+                            }
+                        </InputSelect>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

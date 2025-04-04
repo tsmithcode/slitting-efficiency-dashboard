@@ -1,19 +1,38 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<div class="d-flex flex-column min-vh-100">
+    <div class="page d-flex flex-grow-1">
+        <div class="sidebar">
+            <NavMenu />
         </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+        <main class="flex-fill d-flex flex-column">
+            <div class="top-row px-4">
+                <a href="/about">About</a>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+
+    <!-- 🧾 Footer -->
+    <footer class="mt-auto py-4 border-top text-center small text-muted">
+        <div>
+            💼 Developed by <a href="mailto:thomas@tsmithcode.ai">Thomas Smith</a> ·
+            <a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a>
+        </div>
+        <div>
+            🐙 GitHub Repo:
+            <a href="https://github.com/tsmithcode/slitting-efficiency-dashboard" target="_blank">
+                github.com/tsmithcode/slitting-efficiency-dashboard
+            </a>
+        </div>
+        <div>
+            ⚙️ Built with Blazor Server (.NET 8), Recharts, TailwindCSS, Bootstrap
+        </div>
+    </footer>
 </div>
 
 <div id="blazor-error-ui">

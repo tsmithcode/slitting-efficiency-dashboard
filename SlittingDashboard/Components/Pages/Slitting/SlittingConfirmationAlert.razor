@@ -1,0 +1,12 @@
+﻿@* SlittingConfirmationAlert.razor *@
+@code {
+    [Parameter] public bool Submitted { get; set; }
+    [Parameter] public int TotalOrders { get; set; }
+}
+
+@if (Submitted)
+{
+    <div class="alert alert-success mt-4">
+        ✅ Shift saved successfully! Total Orders: <strong>@TotalOrders</strong>
+    </div>
+}
