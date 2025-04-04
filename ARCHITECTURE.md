@@ -182,6 +182,3 @@ Built by [Thomas Smith](https://tsmithcode.ai)
 License: **CC BY-NC-ND 4.0** — All rights reserved
 ```
 
----
-
-Would you like `CHANGELOG.md` or `DEVELOPMENT_PLAN.md` scaffolded next?
