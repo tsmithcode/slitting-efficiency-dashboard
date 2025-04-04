@@ -1,18 +1,21 @@
-using SlittingDashboard.Components;
+﻿using SlittingDashboard.Components;
 using SlittingDashboard.Data.Interfaces;
+using SlittingDashboard.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ✅ Add services BEFORE building the app
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-var app = builder.Build();
 
+// ✅ Register DI services
 builder.Services.AddSingleton<IPerformanceAggregator, PerformanceAggregator>();
 builder.Services.AddSingleton<IShiftTrackingService, ShiftTrackingService>();
 builder.Services.AddSingleton<ISnapshotService, SnapshotService>();
 
-// Configure the HTTP request pipeline.
+var app = builder.Build();
+
+// ✅ Configure middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -21,6 +24,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+// ✅ Map Razor components
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

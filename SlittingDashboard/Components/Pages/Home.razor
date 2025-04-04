@@ -1,8 +1,75 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Components.Routing
+@inject NavigationManager Navigation
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Slitting Efficiency Dashboard</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">📊 Slitting Efficiency Dashboard</h1>
+        <p class="lead text-muted">Built by <a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a> to track shift performance, reduce downtime, and drive data-informed decisions in real time.</p>
+    </div>
 
-Welcome to your new app.
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success">🚀 Start Shift Entry</h5>
+                    <p class="card-text">Log hourly orders, operator notes, and downtime causes.</p>
+                    <button class="btn btn-outline-success" @onclick="@(() => Navigation.NavigateTo("/slitting"))">Enter Shift</button>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">📈 View Dashboard</h5>
+                    <p class="card-text">Live KPIs with filters by date, operator, area, and shift.</p>
+                    <button class="btn btn-outline-primary" @onclick="@(() => Navigation.NavigateTo("/dashboard"))">View Dashboard</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-dark">
+                <div class="card-body">
+                    <h5 class="card-title">📤 Export Reports</h5>
+                    <p class="card-text">Download CSVs or print for daily standups and audits.</p>
+                    <button class="btn btn-outline-dark" @onclick="@(() => Navigation.NavigateTo("/dashboard"))">Export Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="text-center">
+        <small class="text-muted d-block mb-1">
+            💼 Developed by <a href="mailto:thomas@tsmithcode.ai">Thomas Smith</a> · <a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a>
+        </small>
+        <small class="text-muted d-block">
+            🐙 GitHub Repo: <a href="https://github.com/tsmithcode/slitting-efficiency-dashboard" target="_blank">github.com/tsmithcode/slitting-efficiency-dashboard</a>
+        </small>
+        <small class="text-muted">
+            ⚙️ Built with Blazor Server (.NET 8), Recharts, TailwindCSS, Bootstrap
+        </small>
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="text-center">
+        <h5 class="fw-semibold mb-3">👥 Contributors</h5>
+
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-4 text-muted">
+            <div>
+                <strong>Criseida Fabiano</strong><br />
+                Manufacturing & Continuous Improvement Engine
+            </div>
+            <div>
+                <strong>Steve Powers</strong><br />
+                Process & Continuous Improvement Technician
+            </div>
+        </div>
+    </div>
+</div>
