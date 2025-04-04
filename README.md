@@ -43,4 +43,4 @@ This project is licensed under the
 
 **No commercial or educational use is permitted without explicit written permission from the author.**
 
-© [Your Name / tsmithcode.ai], 2025. All rights reserved.
+© [Thomas Smith / tsmithcode.ai], 2025. All rights reserved.
