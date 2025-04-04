@@ -29,28 +29,28 @@ The Slitting Efficiency Dashboard is a modular Blazor Server application for tra
 ## 🗂️ Folder Structure
 
 ```
-SlittingDashboard/
-├── Pages/
-│   ├── Input.razor
-│   └── Dashboard.razor
-├── Components/
-│   ├── DateRangePicker.razor
-│   └── Select.razor
-├── Data/
-│   ├── Models/
-│   │   ├── ShiftSummary.cs
-│   │   ├── OperatorEntry.cs
-│   │   └── DailyShiftSnapshot.cs
-│   └── Services/
-│       ├── IShiftTrackingService.cs
-│       ├── IPerformanceAggregator.cs
-│       └── MockSnapshotService.cs
-├── Services/
-│   └── SnapshotService.ts
-├── wwwroot/js/
-│   └── export.js
-└── Shared/
-    └── Layout.razor
+    SlittingDashboard/
+    ├── Pages/
+    │   ├── Input.razor
+    │   └── Dashboard.razor
+    ├── Components/
+    │   ├── DateRangePicker.razor
+    │   └── Select.razor
+    ├── Data/
+    │   ├── Models/
+    │   │   ├── ShiftSummary.cs
+    │   │   ├── OperatorEntry.cs
+    │   │   └── DailyShiftSnapshot.cs
+    │   └── Services/
+    │       ├── IShiftTrackingService.cs
+    │       ├── IPerformanceAggregator.cs
+    │       └── MockSnapshotService.cs
+    ├── Services/
+    │   └── SnapshotService.ts
+    ├── wwwroot/js/
+    │   └── export.js
+    └── Shared/
+        └── Layout.razor
 ```
 
 ---
