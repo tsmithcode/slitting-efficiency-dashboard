@@ -30,24 +30,75 @@ dotnet add package System.Text.Json
 #### ✅ Recommended Folder Structure
 
 ```
-SlittingDashboard/
-├── Data/
-│   ├── Models/
-│   │   ├── ShiftSummary.cs
-│   │   ├── OperatorEntry.cs
-│   │   └── DailyShiftSnapshot.cs
-│   ├── Services/
-│   │   ├── IShiftTrackingService.cs
-│   │   ├── IPerformanceAggregator.cs
-│   │   └── MockSnapshotService.cs
-├── Pages/
-│   ├── Input.razor
-│   └── Dashboard.razor
-├── Shared/
-│   └── Layout.razor
-└── wwwroot/
-    └── js/
-        └── export.js (optional JS interop for CSV/PDF)
+  slitting-efficiency-dashboard/
+  │
+  ├── SlittingDashboard.sln                  # Visual Studio solution file
+  ├── .gitignore                             # Standard .NET + VS ignores
+  ├── GlobalUsings.cs                        # Common namespace declarations
+  │
+  ├── SlittingDashboard/                     # Main Blazor Server app
+  │   ├── Program.cs                         # App entry point (DI, services)
+  │   ├── App.razor                          # Root component
+  │   ├── Imports.razor                      # Common component imports
+  │   ├── _Host.cshtml                       # Blazor Server host page
+  │   │
+  │   ├── wwwroot/
+  │   │   ├── css/                           # Tailwind / Bootstrap
+  │   │   ├── js/
+  │   │   │   └── export.js                  # CSV or PDF interop (optional)
+  │   │   └── favicon.ico
+  │   │
+  │   ├── Pages/
+  │   │   ├── Input.razor                    # Shift data entry
+  │   │   └── Dashboard.razor                # Real-time KPIs & filters
+  │   │
+  │   ├── Components/
+  │   │   ├── Charts/
+  │   │   │   └── DashboardCharts.razor      # Renders line/bar/pareto charts
+  │   │   ├── Filters/
+  │   │   │   ├── DateRangePicker.razor
+  │   │   │   └── Select.razor
+  │   │   └── Layout/
+  │   │       └── Header.razor               # Shared site header
+  │   │
+  │   ├── Data/
+  │   │   ├── Models/
+  │   │   │   ├── OperatorEntry.cs
+  │   │   │   ├── DailyShiftSnapshot.cs
+  │   │   │   ├── ShiftSummary.cs
+  │   │   │   └── IssueCategory.cs           # Optional for extra validation
+  │   │   │
+  │   │   ├── Interfaces/
+  │   │   │   ├── IShiftTrackingService.cs
+  │   │   │   ├── IPerformanceAggregator.cs
+  │   │   │   └── IOtherFutureInterface.cs   # Stub for expansions
+  │   │   │
+  │   │   ├── Services/
+  │   │   │   ├── ShiftTrackingService.cs    # Implements IShiftTrackingService
+  │   │   │   ├── PerformanceAggregator.cs   # Implements IPerformanceAggregator
+  │   │   │   ├── MockSnapshotService.cs     # Dev seed data (optional)
+  │   │   │   └── SnapshotService.cs         # JS interop or real data calls
+  │   │
+  │   ├── Shared/
+  │   │   ├── MainLayout.razor
+  │   │   └── NavMenu.razor
+  │   │
+  │   └── Properties/
+  │       └── launchSettings.json
+  │
+  ├── docs/
+  │   ├── README.md                          # Optional doc index
+  │   ├── PRODUCT_OVERVIEW.md
+  │   ├── REQUIREMENTS.md
+  │   ├── ARCHITECTURE.md
+  │   ├── SETUP_AND_WORKFLOW_GUIDE.md
+  │   ├── CHANGELOG.md                       # Optional
+  │   ├── UI_FLOW.md                         # Optional page flow doc
+  │   └── DEPLOYMENT.md                      # Optional CI/CD or hosting notes
+  │
+  ├── LICENSE                                # CC BY-NC-ND 4.0
+  └── README.md                              # Main GitHub README
+
 ```
 
 ---
