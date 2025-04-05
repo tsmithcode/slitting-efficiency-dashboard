@@ -4,7 +4,7 @@
     [Parameter] public EventCallback OnReset { get; set; }
 }
 
-<div class="mt-4 d-flex gap-2">
-    <button type="submit" class="btn btn-success" @onclick="OnSubmit">✅ Save Shift</button>
-    <button type="button" class="btn btn-secondary" @onclick="OnReset">Reset</button>
+<div class="text-center mb-5 d-flex flex-column flex-md-row justify-content-center gap-3 my-4">
+    <button type="submit" class="btn btn-outline-primary btn-lg" @onclick="OnSubmit">✅ Save Shift</button>
+    <button type="button" class="btn btn-outline-secondary btn-lg" @onclick="OnReset">Reset</button>
 </div>

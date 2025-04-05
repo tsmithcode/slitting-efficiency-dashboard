@@ -1,6 +1,6 @@
 ﻿namespace SlittingDashboard.Data.Constants;
 
-public static class CommentMenus
+public static class Menus
 {
     // Updated Issues array
     public static readonly string[] Issues = new[]

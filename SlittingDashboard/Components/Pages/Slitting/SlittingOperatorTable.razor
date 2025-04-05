@@ -36,9 +36,22 @@
                     <td>
                         <InputSelect @bind-Value="op.Comment" class="form-select">
                             <option value="">(None)</option>
-                            @foreach (var issue in CommentMenus.Issues)
+                            @foreach (var issue in Menus.Issues)
                             {
                                 <option value="@issue">@issue</option>
+                            }
+                        </InputSelect>
+                    </td>
+
+                    <td>
+                        <InputNumber @bind-Value="op.SlitterNumber" class="form-control" />
+                    </td>
+                    <td>
+                        <InputSelect @bind-Value="op.OperatorName" class="form-select">
+                            <option value="">Select Operator</option>
+                            @foreach (var name in Menus.Operators.OrderBy(n => n))
+                            {
+                                <option value="@name">@name</option>
                             }
                         </InputSelect>
                     </td>

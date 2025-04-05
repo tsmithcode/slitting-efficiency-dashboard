@@ -20,7 +20,7 @@
 
 <!-- 🔍 Filter Panel -->
 <div class="row g-3 mb-4 justify-content-center">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label class="form-label">Shift</label>
         <InputSelect @bind-Value="selectedShift" class="form-select">
             <option value="All">All Shifts</option>
@@ -29,11 +29,11 @@
         </InputSelect>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label class="form-label">Operator</label>
         <InputSelect @bind-Value="selectedOperator" class="form-select">
             <option value="All">All Operators</option>
-            @foreach (var op in operatorList)
+            @foreach (var op in Menus.Operators)
             {
                 <option value="@op">@op</option>
             }
@@ -41,6 +41,17 @@
     </div>
 
     <div class="col-md-4">
+        <label class="form-label">Issue Type</label>
+        <InputSelect @bind-Value="selectedIssue" class="form-select">
+            <option value="All">All Issues</option>
+            @foreach (var op in Menus.Issues)
+            {
+                <option value="@op">@op</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="col-md-12">
         <label class="form-label">Date Range</label>
         <div class="d-flex gap-2">
             <InputDate @bind-Value="fromDate" class="form-control" />
@@ -110,17 +121,12 @@
 @code {
     private string selectedShift = "All";
     private string selectedOperator = "All";
+    private string selectedIssue = "All";
     private DateOnly fromDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-7));
     private DateOnly toDate = DateOnly.FromDateTime(DateTime.Today);
 
     private int totalOrders = 250;
     private int totalIssues = 20;
-
-    private List<string> operatorList = new()
-    {
-        "Patrick Agyekum", "Ean Evans", "Gregory C Jordan", "Sammy Wilkes",
-        "Eli Armstrong", "Anthony Carter", "Mesha Singleton", "Laron Whitaker"
-    };
 
     private void ExportCsv()
     {
