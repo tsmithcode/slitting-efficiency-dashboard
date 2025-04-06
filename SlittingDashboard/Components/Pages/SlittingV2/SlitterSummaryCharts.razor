@@ -1,0 +1,34 @@
+﻿@page "/charts"
+@inject SlitterPerformanceService Service
+
+<h4 class="text-primary mb-3">Slitter Summary Dashboard</h4>
+<canvas id="ordersHoursChart" width="400" height="150"></canvas>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var data = await Service.GetAllAsync();
+
+            var byDate = data
+                .GroupBy(e => e.ShiftDate)
+                .OrderBy(g => g.Key)
+                .Select(g => new
+                {
+                    Date = g.Key.ToString("MM-dd"),
+                    Orders = g.Sum(e => e.Orders),
+                    Hours = g.Sum(e => e.HoursWorked)
+                })
+                .ToList();
+
+            var labels = byDate.Select(x => x.Date).ToArray();
+            var orders = byDate.Select(x => x.Orders).ToArray();
+            var hours = byDate.Select(x => x.Hours).ToArray();
+
+            await JS.InvokeVoidAsync("renderOrdersHoursChart", labels, orders, hours);
+        }
+    }
+
+    [Inject] IJSRuntime JS { get; set; } = default!;
+}

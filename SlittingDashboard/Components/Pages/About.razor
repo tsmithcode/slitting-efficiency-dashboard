@@ -1,7 +1,7 @@
 ﻿@page "/about"
 @using Microsoft.AspNetCore.Components.Routing
 
-<PageTitle>About - Slitting Efficiency Dashboard</PageTitle>
+<PageTitle>About - Efficiency Dashboard</PageTitle>
 
 <div class="container">
 
@@ -12,65 +12,131 @@
                 <i class="bi bi-info-circle-fill text-primary me-2"></i>
                 About
             </h2>
-            <p class="text-muted mt-3">
-                The <strong>Efficiency Dashboard</strong> is a purpose-built productivity tool developed by
-                <a href="https://tsmithcode.ai" target="_blank">Thomas Smith</a> to help track shift-level metrics,
-                identify root causes, and empower continuous improvement in manufacturing operations.
-            </p>
         </div>
     </div>
 
-    <!-- 🔧 Info Sections -->
-    <div class="row text-start">
-        <div class="col-md-6 mb-4 p-4">
-            <h5 class="fw-semibold">
-                <i class="bi bi-person-fill-gear me-2"></i>
-                Developer & Owner
-            </h5>
-            <p><strong>Thomas Smith</strong></p>
-            <p><a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a><br /><a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a></p>
-            <a href="https://github.com/tsmithcode/slitting-efficiency-dashboard" target="_blank" class="btn btn-outline-dark btn-sm mt-2">
-                <i class="bi bi-github me-2"></i> GitHub Repository
-            </a>
-        </div>
+    <section class="mb-5">
+        <p>
+            This productivity tracking system was independently developed by Thomas Smith, inspired by real-world challenges observed during his work at Habasit America’s headquarters in Suwanee, GA — a major U.S. site for the manufacturing of fabric and plastic modular conveyor belts.
+        </p>
+        <p>
+            The solution was designed to address common operational gaps by enabling real-time tracking of machine performance, operator productivity, and engineering output across departments. It facilitates collaboration between drafters, engineers, process specialists, and leadership to support data-driven continuous improvement across industries.
+        </p>
+    </section>
 
-        <div class="col-md-6 mb-4  p-4">
-            <h5 class="fw-semibold">
-                <i class="bi bi-people-fill me-2"></i>
-                Contributors
-            </h5>
-            <p><strong>Criseida Fabiano</strong><br /><span class="text-muted">Manufacturing & Continuous Improvement Engine</span></p>
-            <p><strong>Steve Powers</strong><br /><span class="text-muted">Process & Continuous Improvement Technician</span></p>
-        </div>
-    </div>
+    <h3 class="mb-3">Meet the Team</h3>
+    <dl class="row">
 
-    <div class="row text-start">
-        <div class="col-md-6 mb-4  p-4">
-            <h5 class="fw-semibold">
-                <i class="bi bi-box-fill me-2"></i>
-                Technologies Used
-            </h5>
-            <ul class="mb-0">
-                <li>Blazor Server (.NET 8)</li>
-                <li>Recharts (React via interop)</li>
-                <li>TailwindCSS + Bootstrap grid</li>
-                <li>CSV/PDF export, real-time filtering</li>
-            </ul>
-        </div>
-
-        <div class="col-md-6 mb-4  p-4">
-            <h5 class="fw-semibold">
-                <i class="bi bi-file-earmark-text-fill me-2"></i>
-                License
-            </h5>
+        <dt class="col-sm-3">Robert Perry III</dt>
+        <dd class="col-sm-9">
             <p>
-                This app is licensed under the
-                <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</strong>.
-                <br />
-                No commercial or educational use is permitted without explicit written permission.
+                <strong>Role:</strong> Director of Continuous Improvement<br />
+                <strong>Credentials:</strong> Six Sigma Black Belt
             </p>
-        </div>
+            Robert oversees the team responsible for engineering and continuous improvement across Habasit America. His leadership ensures this system aligns with lean principles and is deployed with clarity, purpose, and results.
+
+            <p class="mt-2">
+                <i class="bi bi-linkedin me-1"></i>
+                <a href="https://www.linkedin.com/in/robert-perry-placeholder" target="_blank">LinkedIn Profile</a>
+            </p>
+        </dd>
+
+        <dt class="col-sm-3">Criseida Fabiano</dt>
+        <dd class="col-sm-9">
+            <p><strong>Role:</strong> Manufacturing & Continuous Improvement Engineer</p>
+            Criseida originated the spreadsheet used for slitting tracking — covering 9 machines, 27 operators, 2 shifts, 2 supervisors, and 2 team leads. Her initiative led to the first business case.
+            <br />
+            She now uses the app to track daily production and over 25 Pareto categories including: <em>PTO</em>, <em>Machine down</em>, <em>Waiting for material</em>, <em>Training</em>, <em>Early leaving</em>, and more.
+
+            <p class="mt-2">
+                <i class="bi bi-linkedin me-1"></i>
+                <a href="https://www.linkedin.com/in/criseida-fabiano-placeholder" target="_blank">LinkedIn Profile</a>
+            </p>
+        </dd>
+        
+
+        <dt class="col-sm-3">Steve Powers</dt>
+        <dd class="col-sm-9">
+            <p>
+                <strong>Role:</strong> Manufacturing Process Engineer<br />
+                <strong>Previous:</strong> Continuous Improvement Technician
+            </p>
+            Steve created all U.S. special build plastic modular belt drawings before Thomas joined, and helped standardize CAD practices. He now uses the app to track <strong>fabric belt flex cutting</strong> performance and mentor new contributors to the engineering process.
+
+            <p class="mt-2">
+                <i class="bi bi-linkedin me-1"></i>
+                <a href="https://www.linkedin.com/in/steve-powers-placeholder" target="_blank">LinkedIn Profile</a>
+            </p>
+        </dd>
+
+        <dt class="col-sm-3">Thomas Smith</dt>
+        <dd class="col-sm-9">
+            <p>
+                <strong>Role:</strong> Developer & Founder<br />
+                <strong>Habasit Role:</strong> CAD Drafter
+            </p>
+
+            <p>
+                Thomas joined Habasit America and quickly recognized a critical gap in how operator productivity and finished goods were tracked. Using Blazor and C#, he built this platform to replace spreadsheets with a long-term, no-code, data-driven solution.
+            </p>
+
+            <p>
+                He designed the app to scale to <strong>millions of engineers and machines globally</strong> over 20+ years, making technical decisions with zero-maintenance in mind. His vision is to license the system to enterprise manufacturers like Boeing, Lockheed Martin, and Daikin Applied.
+            </p>
+
+            Thomas actively uses the app to track special build plastic modular belt drawings in the U.S.
+
+            <p class="mt-2">
+                <a href="https://github.com/tsmithcode/slitting-efficiency-dashboard" target="_blank" class="btn btn-outline-dark btn-sm me-2">
+                    <i class="bi bi-github me-1"></i> GitHub Repository
+                </a>
+            </p>
+            <p>
+                <i class="bi bi-envelope me-1"></i>
+                <a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a><br />
+                <i class="bi bi-globe me-1"></i>
+                <a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a><br />
+                <i class="bi bi-linkedin me-1"></i>
+                <a href="https://www.linkedin.com/in/thomas-smith-placeholder" target="_blank">LinkedIn Profile</a>
+            </p>
+        </dd>
+
+       
+    </dl>
+
+    <hr class="my-5" />
+
+    <h3 class="mb-3">Technologies Used</h3>
+    <ul class="list-unstyled ms-3">
+        <li><i class="bi bi-dot me-1"></i> Blazor Server (.NET 8)</li>
+        <li><i class="bi bi-dot me-1"></i> Charts.js (via React interop)</li>
+        <li><i class="bi bi-dot me-1"></i> TailwindCSS + Bootstrap grid</li>
+        <li><i class="bi bi-dot me-1"></i> CSV & PDF export, real-time filtering</li>
+    </ul>
+
+    <hr class="my-5" />
+
+    <h3 class="mb-3">License</h3>
+    <div class="ms-1">
+        <p>
+            This application is licensed under the
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+                Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+            </a> (CC BY-NC-ND 4.0).
+        </p>
+
+        <ul class="mb-2">
+            <li><strong>Commercial use</strong> is <span class="text-danger">prohibited</span> without the express written consent of the author.</li>
+            <li><strong>Educational use</strong> is also <span class="text-danger">not permitted</span> under this license.</li>
+        </ul>
+
+        <p class="mb-0">
+            <strong>Permission granted:</strong> Thomas Smith expressly authorizes <strong>Habasit America</strong> to use this solution internally for operational purposes.
+        </p>
     </div>
+
+
+    
 
     <div class="text-center mt-4">
         <a href="/" class="btn btn-outline-primary">⬅ Back to Home</a>

@@ -1,52 +1,27 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Routing
+@using SlittingDashboard.Components.Pages.SlittingV2
 @inject NavigationManager Navigation
 
 <PageTitle>Efficiency Dashboard</PageTitle>
 
+
 <div class="container">
-
-    <!-- 🧠 Page Header -->
-    <div class="row mb-4">
-        <div class="col text-center">
-            <p class="text-muted">
-                Built by <a href="https://tsmithcode.ai" target="_blank">tsmithcode.ai</a> to track shift performance, reduce downtime,
-                and drive data-informed decisions in real time.
-            </p>
-        </div>
-    </div>
-
-    <!-- 🔧 Core Navigation Cards -->
     <div class="row text-center">
         
-    </div>
 
-</div>
-
-
-<div class="container">
-    <div class="row text-center">
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100 border-success">
-                <div class="card-body">
-                    <h5 class="card-title text-success">🚀 Start Shift Entry</h5>
-                    <p class="card-text">Log hourly orders, operator notes, and downtime causes.</p>
-                   
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
+      @*   <div class="col-md-4 mb-4">
             <div class="card shadow-sm h-100 border-primary">
                 <div class="card-body">
-                    <h5 class="card-title text-primary">📈 View Dashboard</h5>
+                    <h5 class="card-title text-primary">📈 View Dashboard</h5> 
                     <p class="card-text">Live KPIs with filters by date, operator, area, and shift.</p>
                    
                 </div>
             </div>
-        </div>
+        </div> 
+      *@
 
-        <div class="col-md-4 mb-4">
+        @* <div class="col-md-4 mb-4">
             <div class="card shadow-sm h-100 border-dark">
                 <div class="card-body">
                     <h5 class="card-title">📤 Export Reports</h5>
@@ -54,7 +29,10 @@
                    
                 </div>
             </div>
-        </div>
+        </div> *@
     </div>
 </div>
+
+
+<SlitterTable />
 

@@ -1,0 +1,117 @@
+﻿@inject SlitterPerformanceService Service
+
+@if (IsVisible)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@((Model?.Id == Guid.Empty) ? "Add Entry" : "Edit Entry")</h5>
+                    <button type="button" class="btn-close" @onclick="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label class="form-label">Operator</label>
+                        <input class="form-control form-control-sm" @bind="Model.OperatorName" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Machine</label>
+                        <input class="form-control form-control-sm" @bind="Model.MachineName" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Supervisor</label>
+                        <input class="form-control form-control-sm" @bind="Model.Supervisor" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Team Lead</label>
+                        <input class="form-control form-control-sm" @bind="Model.TeamLead" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Orders</label>
+                        <input type="number" class="form-control form-control-sm" @bind="Model.Orders" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Goal</label>
+                        <input type="number" class="form-control form-control-sm" @bind="Model.Goal" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Hours</label>
+                        <input type="number" class="form-control form-control-sm" @bind="Model.HoursWorked" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Issue Category</label>
+                        <input class="form-control form-control-sm" @bind="Model.IssueCategory" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Shift</label>
+                        <select class="form-select form-select-sm" @bind="Model.ShiftName">
+                            <option>1st</option>
+                            <option>2nd</option>
+                            <option>3rd</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control form-control-sm" @bind="Model.ShiftDate" />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">PTO</label>
+                        <input type="checkbox" class="form-check-input" @bind="Model.PTO" />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Comments</label>
+                        <textarea class="form-control form-control-sm" @bind="Model.Comments"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" @onclick="Close">Cancel</button>
+                    <button class="btn btn-success btn-sm" @onclick="Save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool IsVisible { get; set; }
+    public SlitterShiftEntry Model { get; set; } = new();
+
+    [Parameter] public EventCallback OnSaved { get; set; }
+
+    public void Show(SlitterShiftEntry? entry = null)
+    {
+        Model = entry is null ? new SlitterShiftEntry() : entry with { };
+        IsVisible = true;
+        StateHasChanged();
+    }
+
+    private void Close()
+    {
+        IsVisible = false;
+        StateHasChanged();
+    }
+
+    private async Task Save()
+    {
+        if (Model.Id == Guid.Empty)
+        {
+            Model.Id = Guid.NewGuid();
+            await Service.AddAsync(Model);
+        }
+        else
+        {
+            await Service.UpdateAsync(Model);
+        }
+
+        await OnSaved.InvokeAsync();
+        Close();
+    }
+}

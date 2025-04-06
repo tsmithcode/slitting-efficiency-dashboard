@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "d1c1f49e-4fa4-4cbb-8f00-982c56c19a35",
+    "ShiftDate": "2025-04-04T00:00:00",
+    "ShiftName": "1st",
+    "OperatorName": "Robert Perry",
+    "MachineName": "Slitter A",
+    "Supervisor": "Steve Powers",
+    "TeamLead": "Thomas Smith",
+    "Orders": 42,
+    "Goal": 40,
+    "HoursWorked": 8,
+    "PTO": false,
+    "Comments": "Smooth run",
+    "IssueCategory": "None"
+  },
+  {
+    "Id": "723cbb65-2b5d-4e58-b922-1dbfcbf91fcf",
+    "ShiftDate": "2025-04-04T00:00:00",
+    "ShiftName": "1st",
+    "OperatorName": "Criseida Fabiano",
+    "MachineName": "Slitter B",
+    "Supervisor": "Steve Powers",
+    "TeamLead": "Thomas Smith",
+    "Orders": 31,
+    "Goal": 40,
+    "HoursWorked": 8,
+    "PTO": false,
+    "Comments": "Material jam",
+    "IssueCategory": "Material"
+  }
+]

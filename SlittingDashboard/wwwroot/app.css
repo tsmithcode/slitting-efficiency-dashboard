@@ -58,3 +58,29 @@ h1:focus {
     line-height: 1;
     font-size: 1.25rem; /* optional override */
 }
+
+/* Compact cell styles */
+.table-sm td,
+.table-sm th {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.cell-red {
+    background-color: #f8d7da;
+}
+
+.cell-yellow {
+    background-color: #fff3cd;
+}
+
+.cell-green {
+    background-color: #d4edda;
+}
+
+.card-header-sm {
+    font-size: 0.85rem;
+    font-weight: 500;
+}

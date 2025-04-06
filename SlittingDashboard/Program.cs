@@ -1,4 +1,5 @@
 ﻿using SlittingDashboard.Components;
+using SlittingDashboard.Components.Pages.SlittingV2;
 using SlittingDashboard.Data.Interfaces;
 using SlittingDashboard.Data.Services;
 
@@ -12,6 +13,10 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<IPerformanceAggregator, PerformanceAggregator>();
 builder.Services.AddSingleton<IShiftTrackingService, ShiftTrackingService>();
 builder.Services.AddSingleton<ISnapshotService, SnapshotService>();
+
+builder.Services.AddSingleton<SeedDataService>();
+builder.Services.AddSingleton<SlitterPerformanceService>();
+builder.Services.AddSingleton<IStorageService, JsonFileStorageService>();
 
 var app = builder.Build();
 

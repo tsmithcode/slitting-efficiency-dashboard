@@ -1,0 +1,111 @@
+﻿@inject SlitterPerformanceService Service
+
+<SlitterEntryModal @ref="entryModal" OnSaved="Reload" />
+
+
+
+@* <div class="card-body">
+    <h5 class="card-title text-success">🚀 Start Shift Entry</h5>
+</div> *@
+
+ <div class="col text-center">
+<h2 class="fw-bold">
+    🧾 Performance Entries
+</h2>
+</div>
+
+<p class="text-muted mt-3">
+    Log hourly orders, operator notes, and downtime causes to track shift performance, reduce downtime,
+    and drive  <strong>data-informed</strong> decisions in <strong>real time.</strong>
+</p>
+
+
+
+<blockquote class="blockquote small text-center">
+    <p class="mb-0">
+        
+    </p>
+
+</blockquote>
+
+<!-- 🧾 ADD ENTRY BUTTON -->
+
+
+<button class="btn btn-sm btn-success mb-2" @onclick="() => ShowModal(null)">+ Add Entry</button>
+
+<!-- 🧾 TABLE -->
+
+<div class="table-responsive-sm">
+    <table class="table table-bordered table-sm text-center w-100">
+        <thead class="table-light">
+            <tr>
+                <th>Operator</th>
+                <th>Machine</th>
+                <th>Shift</th>
+                <th>Date</th>
+                <th>Orders</th>
+                <th>Goal</th>
+                <th>Hours</th>
+                <th>Status</th>
+                <th>PTO</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in entries)
+            {
+                <tr class="@GetColorClass(entry.ColorCode)">
+                    <td>@entry.OperatorName</td>
+                    <td>@entry.MachineName</td>
+                    <td>@entry.ShiftName</td>
+                    <td>@entry.ShiftDate.ToString("MM-dd")</td>
+                    <td>@entry.Orders</td>
+                    <td>@entry.Goal</td>
+                    <td>@entry.HoursWorked</td>
+                    <td class="fw-bold">@entry.ColorCode</td>
+                    <td>@(entry.PTO ? "Yes" : "No")</td>
+                    <td class="text-start">@entry.Comments</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary me-1" @onclick="() => ShowModal(entry)">Edit</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => Delete(entry.Id)">X</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private List<SlitterShiftEntry> entries = new();
+    private SlitterEntryModal? entryModal;
+
+    protected override async Task OnInitializedAsync()
+    {
+        entries = await Service.GetAllAsync();
+    }
+
+    private async Task Reload()
+    {
+        entries = await Service.GetAllAsync();
+        StateHasChanged();
+    }
+
+    private string GetColorClass(string code) => code switch
+    {
+        "green" => "cell-green",
+        "yellow" => "cell-yellow",
+        "red" => "cell-red",
+        _ => ""
+    };
+
+    private void ShowModal(SlitterShiftEntry? entry) => entryModal?.Show(entry);
+
+
+
+    private async Task Delete(Guid id)
+    {
+        await Service.DeleteAsync(id);
+        await Reload();
+    }
+}
