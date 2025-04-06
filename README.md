@@ -1,4 +1,4 @@
-# 📊 Slitting Efficiency Dashboard
+# 📊 Efficiency Dashboard
 
 Real-time shift tracking, operator productivity, and issue analysis dashboard built with Blazor Server (.NET 8), Recharts, and modern clean UI.
 
